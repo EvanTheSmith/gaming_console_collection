@@ -13,7 +13,7 @@
 
   /* --- Welcome Page Styles --- */
   body {
-    background-color: lightblue;
+    background-color:rgb(90,24,34);
     color: #333;
     font-family: Sans-Serif;
     line-height: 18px;
@@ -60,18 +60,6 @@
     width: 60%; /* 480px / 800px */
   }
 
-  .sidebar {
-    background: #eee;
-    border: 1px solid #ccc;
-    float: right;
-    padding: 2.08333333333%; /* 5px / 240px */
-    width: 30%; /* 240px / 800px */
-  }
-
-  .sidebar ul {
-    font-size: 14px;
-  }
-
   .branding {
     clear: both;
   }
@@ -91,16 +79,9 @@
     width: auto;
   }
 
-  .content, .sidebar {
+  .content {
     float: none;
     width: 100%;
-  }
-
-  .sidebar {
-    background: transparent;
-    border: none;
-    border-top: 2px solid #ccc;
-    padding: 0;
   }
 
   h1 {
