@@ -10,11 +10,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    if !logged_in?
       erb :index
-    else
-      # Render a page for a logged in user
-    end
   end
 
   helpers do
