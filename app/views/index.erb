@@ -1,9 +1,8 @@
 <div class="content">
-<p>Welcome to the Gaming Console Collector. 
 <% if !logged_in? %>
-  Please sign in or sign up below to proceed.</p>
-  <p><a href="/signup">Sign Up</a> // <a href="/login">Sign In</a></p>
+    <p>Welcome to the Gaming Console Collector. Please sign in or sign up below to proceed.</p>
+    <p><a href="/signup">Sign Up</a> // <a href="/login">Sign In</a></p>
 <% else %>
-  </p>
+    <p>Welcome to the Gaming Console Collector, <%= current_user.user_name %>!</p>
 <% end %>
 </div>

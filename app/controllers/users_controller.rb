@@ -14,7 +14,7 @@ class UsersController < ApplicationController
         session[:user_id] = user.id
         redirect "/"
       else
-        redirect "users/signup"
+        redirect "/signup"
       end
     end
 
