@@ -1,9 +1,21 @@
-<p>Here are all of <%= @user.user_name %>'s consoles:</p>
+<% if @user.consoles == [] %>
+
+<p><%= @user.user_name %> has no consoles.</p>
+
+<% else %>
+
+<p><%= @user.user_name %>'s consoles:</p>
+
+<table>
+<tr>
+<td>Name / Release Year / Manufacturer</td>
+</tr>
 
 <% @user.consoles.each do |console| %>
-    <ul>
-    <li><%= console.name %></li>
-    <li><%= console.release_year %></li>
-    <li><%= console.manufacturer %></li>
-    </ul>
+    <tr>
+    <td>> <a href="/test"><%= console.name %> / <%= console.release_year %> / <%= console.manufacturer %></a></td>
+    </tr>
+<% end %>
+</table>
+
 <% end %>
