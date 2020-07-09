@@ -1,10 +1,18 @@
 <% if @user.consoles == [] %>
 
-<p><%= @user.user_name %> has no consoles.</p>
+<% if @user == current_user %>
+    <p>You have no consoles, <%= @user.user_name %>. Would you like to add some? <a href="test">Click here.</a></p>
+<% else %>
+    <p><%= @user.user_name %> has no consoles.</p>
+<% end %>
 
 <% else %>
 
-<p><%= @user.user_name %>'s consoles:</p>
+<% if @user == current_user %>
+    <p>Your consoles:</p>
+<% else  %>
+    <p><%= @user.user_name %>'s consoles:</p>
+<% end %>
 
 <table>
 <tr>
