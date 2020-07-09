@@ -1,11 +1,17 @@
-<p>Here are all our users on the site:</p>
+<p>Here are all users on the site. Click on an individual user to view their consoles.</p>
 
 <table>
 <% @users.each do |user| %>
     <% if !user.id.even? %>
-    <tr><td> <a href="/users/<%= user.slug %>"><%= user.user_name %></a> </td>
+    <tr><td>
+        <a href="/users/<%= user.slug %>"><%= user.user_name %></a>
+        <% if user == current_user %> «<% end %>
+    </td>
     <% else %>
-    <td> <a href="/users/<%= user.slug %>"><%= user.user_name %></a> </td></tr>
+    <td>
+        <a href="/users/<%= user.slug %>"><%= user.user_name %></a>
+        <% if user == current_user %> «<% end %>
+    </td></tr>
     <% end %>
 <% end %>
 
