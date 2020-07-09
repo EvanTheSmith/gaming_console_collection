@@ -6,9 +6,9 @@ class User < ActiveRecord::Base
 
     def slug
         self.username.parameterize
-      end
+    end
     
       def self.find_by_slug(slug)
         self.find{|user| user.slug == slug}
-      end
+    end
 end
