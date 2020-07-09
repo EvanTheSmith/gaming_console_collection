@@ -5,10 +5,10 @@ class User < ActiveRecord::Base
     validates_uniqueness_of :user_name, :email
 
     def slug
-        self.username.parameterize
+        self.user_name.parameterize
     end
     
-      def self.find_by_slug(slug)
+    def self.find_by_slug(slug)
         self.find{|user| user.slug == slug}
     end
 end

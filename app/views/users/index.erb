@@ -3,9 +3,9 @@
 <table>
 <% @users.each do |user| %>
     <% if !user.id.even? %>
-    <tr><td> <%= user.user_name %> </td>
+    <tr><td> <a href="/users/<%= user.slug %>"><%= user.user_name %></a> </td>
     <% else %>
-    <td> <%= user.user_name %> </td></tr>
+    <td> <a href="/users/<%= user.slug %>"><%= user.user_name %></a> </td></tr>
     <% end %>
 <% end %>
 
