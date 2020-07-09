@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20200707215556) do
     t.string  "name"
     t.integer "release_year"
     t.string  "manufacturer"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|

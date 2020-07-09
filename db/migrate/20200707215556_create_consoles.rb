@@ -4,6 +4,7 @@ class CreateConsoles < ActiveRecord::Migration
       c.string :name
       c.integer :release_year
       c.string :manufacturer
+      c.integer :user_id
     end
   end
 end
