@@ -1,7 +1,9 @@
 <p>Here are all of <%= @user.user_name %>'s consoles:</p>
 
-<% if !@user.consoles.empty? %>
-    <% @user.consoles.each do |console| %>
-        <%= console.name %>
-    <% end %>
+<% @user.consoles.each do |console| %>
+    <ul>
+    <li><%= console.name %></li>
+    <li><%= console.release_year %></li>
+    <li><%= console.manufacturer %></li>
+    </ul>
 <% end %>
