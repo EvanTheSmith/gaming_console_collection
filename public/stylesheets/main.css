@@ -3,7 +3,6 @@
     width: 100%;
   }
 
-  /* --- Welcome Page Styles --- */
   body {
     background-color:rgb(90,24,34);
     color: #333;
@@ -29,6 +28,11 @@
   }
 
   table { width: 100%;}
+
+  form {
+    border-left: 5px solid rgb(169,46,64);
+    padding-left: 5px;
+  }
 
   a {
     color: black;
