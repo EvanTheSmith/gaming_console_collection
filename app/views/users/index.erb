@@ -1,1 +1,15 @@
 <p>Here are all our users on the site:</p>
+
+<table>
+<% @users.each do |user| %>
+    <% if !user.id.even? %>
+    <tr><td> <%= user.user_name %> </td>
+    <% else %>
+    <td> <%= user.user_name %> </td></tr>
+    <% end %>
+<% end %>
+
+<% if !@users.last.id.even? %>
+</tr>
+<% end %>
+</table>
