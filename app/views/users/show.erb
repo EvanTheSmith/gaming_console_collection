@@ -18,7 +18,7 @@
 
     <% @user.consoles.each do |console| %>
         <tr>
-        <td><a href="/test"><%= console.name %></a></td>
+        <td><a href="/consoles/<%= console.id %>"><%= console.name %></a></td>
         </tr>
     <% end %>
     </table>

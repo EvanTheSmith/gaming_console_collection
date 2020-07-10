@@ -1,0 +1,19 @@
+<p>Here are all consoles on the site. Click on an individual console to view its details.</p>
+
+<table class="redleft">
+<% @consoles.each do |console| %>
+    <% if !console.id.even? %>
+    <tr><td>
+        <a href="/consoles/<%= console.id %>"><%= console.name %></a>
+    </td>
+    <% else %>
+    <td>
+        <a href="/consoles/<%= console.id %>"><%= console.name %></a>
+    </td></tr>
+    <% end %>
+<% end %>
+
+<% if !@consoles.last.id.even? %>
+</tr>
+<% end %>
+</table>
