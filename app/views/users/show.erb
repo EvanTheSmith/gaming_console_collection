@@ -1,29 +1,29 @@
 <% if @user.consoles == [] %>
 
-<% if @user == current_user %>
+    <% if @user == current_user %>
     <p>You have no consoles, <%= @user.user_name %>. Would you like to add some? <a href="test">Click here.</a></p>
-<% else %>
+    <% else %>
     <p><%= @user.user_name %> has no consoles.</p>
-<% end %>
+    <% end %>
 
 <% else %>
 
-<% if @user == current_user %>
+    <% if @user == current_user %>
     <p>Your consoles:</p>
-<% else  %>
+    <% else  %>
     <p><%= @user.user_name %>'s consoles:</p>
-<% end %>
+    <% end %>
 
-<table>
-<tr>
-<td>Name / Release Year / Manufacturer</td>
-</tr>
-
-<% @user.consoles.each do |console| %>
+    <table>
     <tr>
-    <td>> <a href="/test"><%= console.name %> / <%= console.release_year %> / <%= console.manufacturer %></a></td>
+    <td>Name / Release Year / Manufacturer</td>
     </tr>
-<% end %>
-</table>
+
+    <% @user.consoles.each do |console| %>
+        <tr>
+        <td>> <a href="/test"><%= console.name %> / <%= console.release_year %> / <%= console.manufacturer %></a></td>
+        </tr>
+    <% end %>
+    </table>
 
 <% end %>
