@@ -1,15 +1,18 @@
 <p>Here are all consoles on the site. Click on an individual console to view its details.</p>
 
 <table class="redleft">
+<% td_variable=1 %>
 <% @consoles.each do |console| %>
-    <% if !console.id.even? %>
+    <% if td_variable==1 %>
     <tr><td>
         <a href="/consoles/<%= console.id %>"><%= console.name %></a>
     </td>
+    <% td_variable=2 %>
     <% else %>
     <td>
         <a href="/consoles/<%= console.id %>"><%= console.name %></a>
     </td></tr>
+    <% td_variable=1 %>
     <% end %>
 <% end %>
 

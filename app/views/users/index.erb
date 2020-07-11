@@ -1,15 +1,18 @@
 <p>Here are all users on the site. Click on an individual user to view their consoles.</p>
 
 <table class="redleft">
+<% td_variable=1 %>
 <% @users.each do |user| %>
-    <% if !user.id.even? %>
+    <% if td_variable==1 %>
     <tr><td>
         <a href="/users/<%= user.slug %>"><%= user.user_name %></a>
     </td>
+    <% td_variable=2 %>
     <% else %>
     <td>
         <a href="/users/<%= user.slug %>"><%= user.user_name %></a>
     </td></tr>
+    <% td_variable=1 %>
     <% end %>
 <% end %>
 

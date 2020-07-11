@@ -1,0 +1,27 @@
+<% if logged_in? %>
+
+  <form class="redleft" action="/consoles" method="post">
+    <label for="name">Name: </label>
+    <input type="text" name="console[name]" id="name"><br>
+
+    <label for="release_year">Release Year: </label>
+    <input type="text" name="console[release_year]" id="release_year"><br>
+
+    <label>Manufacturer: </label>
+    <input type="radio" id="nintendo" name="console[manufacturer]" value="Nintendo">
+    <label for="nintendo">Nintendo</label>
+    <input type="radio" id="sony" name="console[manufacturer]" value="Sony">
+    <label for="sony">Sony</label>
+    <input type="radio" id="microsoft" name="console[manufacturer]" value="Microsoft">
+    <label for="microsoft">Microsoft</label>
+    <input type="radio" id="sega" name="console[manufacturer]" value="Sega">
+    <label for="sega">Sega</label>
+    <input type="radio" id="other" name="console[manufacturer]" value="Other">
+    <label for="other">Other</label><br />
+
+    <input type="submit" name="submit" id="submit" value="Submit">
+  </form>
+
+<% else %>
+    <h1>You Must Be <a href="/login">logged in</a> to add consoles.</h1>
+<% end %>
