@@ -10,4 +10,8 @@ class ConsolesController < ApplicationController
         erb :"consoles/show"
     end
 
+    get '/consoles/new' do
+        erb :"consoles/new"
+    end
+
 end
