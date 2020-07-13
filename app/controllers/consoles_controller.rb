@@ -15,6 +15,20 @@ class ConsolesController < ApplicationController
         end
     end
 
+    delete '/consoles/:id' do
+        if logged_in?
+            console = Console.find(params[:id])
+            if console.user == current_user
+              console.destroy
+              redirect "/users/#{current_user.slug}"
+            else
+              redirect "/consoles"
+            end
+        else
+            redirect "/login"
+        end
+    end
+
     get '/consoles/new' do
         if logged_in?
         erb :"consoles/new"
