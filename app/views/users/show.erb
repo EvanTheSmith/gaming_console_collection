@@ -1,7 +1,7 @@
 <% if @user.consoles == [] %>
 
     <% if @user == current_user %>
-    <p><%= @user.user_name %>, You have no consoles. Would you like to add some? <a href="/consoles/new">Click here.</a></p>
+    <p><%= @user.user_name %>, You have no consoles.</p>
     <% else %>
     <p><%= @user.user_name %> has no consoles.</p>
     <% end %>
@@ -24,8 +24,6 @@
     </table>
 
 <% end %>
-
-<br />
 
 <% if current_user == @user %>
 <a href="/consoles/new">> Add New Console</a>
