@@ -1,0 +1,23 @@
+<form class="redleft" action="/consoles/<%= @console.id %>" method="post">
+<input id="hidden" type="hidden" name="_method" value="PATCH">
+
+    <label for="name">Name: </label>
+    <input type="text" name="console[name]" id="name" value="<%= @console.name %>"><br>
+
+    <label for="release_year">Release Year: </label>
+    <input type="text" name="console[release_year]" id="release_year" value="<%= @console.release_year %>"><br>
+
+    <label>Manufacturer: </label>
+    <input type="radio" id="nintendo" name="console[manufacturer]" value="Nintendo" <%= 'checked' if @console.manufacturer == "Nintendo" %>>
+    <label for="nintendo">Nintendo</label>
+    <input type="radio" id="sony" name="console[manufacturer]" value="Sony">
+    <label for="sony">Sony</label>
+    <input type="radio" id="microsoft" name="console[manufacturer]" value="Microsoft" <%= 'checked' if @console.manufacturer == "Microsoft" %>>
+    <label for="microsoft">Microsoft</label>
+    <input type="radio" id="sega" name="console[manufacturer]" value="Sega" <%= 'checked' if @console.manufacturer == "Sega" %>>
+    <label for="sega">Sega</label>
+    <input type="radio" id="other" name="console[manufacturer]" value="Other" <%= 'checked' if @console.manufacturer == "Other" %>>
+    <label for="other">Other</label><br />
+
+    <input type="submit" name="submit" id="submit" value="Submit">
+</form>
