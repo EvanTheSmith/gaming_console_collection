@@ -1,6 +1,4 @@
-<% if logged_in? %>
-
-  <form class="redleft" action="/consoles" method="post">
+<form class="redleft" action="/consoles" method="post">
     <label for="name">Name: </label>
     <input type="text" name="console[name]" id="name"><br>
 
@@ -20,8 +18,4 @@
     <label for="other">Other</label><br />
 
     <input type="submit" name="submit" id="submit" value="Submit">
-  </form>
-
-<% else %>
-    <h1>You Must Be <a href="/login">logged in</a> to add consoles.</h1>
-<% end %>
+</form>
