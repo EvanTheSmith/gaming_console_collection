@@ -3,6 +3,8 @@
     <p>Welcome to the Gaming Console Collector. Please sign in or sign up below to proceed.</p>
     <p><a href="/signup">Sign Up</a> // <a href="/login">Sign In</a></p>
 <% else %>
-    <p>Welcome to the Gaming Console Collector, <%= current_user.user_name %>!</p>
+    <p>Welcome to the Gaming Console Collector, <a href="/users/<%= current_user.slug %>"><%= current_user.user_name %></a>!</p>
+    <p>On this website, users can store a catalog of game consoles they own in addition to viewing consoles owned by their friends.</p>
+    <p>All stored data is public, available for viewing by guests and users alike.</p>
 <% end %>
 </div>
