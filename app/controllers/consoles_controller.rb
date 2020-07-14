@@ -52,9 +52,9 @@ class ConsolesController < ApplicationController
         console.update(params[:console])
     
         if console.save
-          redirect "/consoles/#{@console.id}"
+          redirect "/consoles/#{console.id}"
         else
-          redirect "/tweets/#{@console.id}/edit"
+          redirect "/consoles/#{console.id}/edit"
         end
     end
 
