@@ -28,5 +28,7 @@
 <br />
 
 <% if logged_in? %>
-<a href="/consoles/new">> Add New Console</a>
+<form method="get" action="/consoles/new">
+<input type="submit" value="Add Console">
+</form>
 <% end %>

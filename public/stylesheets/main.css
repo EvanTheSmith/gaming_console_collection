@@ -27,13 +27,16 @@
     width: auto;
   }
 
+  .topbar {
+    width: 100%;
+  }
+
   .redleft {
+    width: 100%;
     border-left: 5px solid rgb(169,46,64);
     padding-left: 5px;
     margin-bottom: 10px;
   }
-
-  table { width: 100%;}
 
   a {
     color: black;

@@ -8,7 +8,9 @@
 <% if current_user == @console.user %>
 <table><tr><td>
 
-<a href="/consoles/<%= @console.id %>/edit">Edit Console</a>
+<form method="get" action="/consoles/<%= @console.id %>/edit">
+<input type="submit" value="Edit Console">
+</form>
 
 </td><td>
 

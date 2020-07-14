@@ -26,5 +26,7 @@
 <% end %>
 
 <% if current_user == @user %>
-<a href="/consoles/new">> Add New Console</a>
+<form method="get" action="/consoles/new">
+<input type="submit" value="Add Console">
+</form>
 <% end %>
