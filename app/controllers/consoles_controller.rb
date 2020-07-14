@@ -53,6 +53,17 @@ class ConsolesController < ApplicationController
         else
             redirect "/login"
         end
-      end
+    end
+
+    patch '/tweets/:id' do
+        @console = Console.find(params[:id])
+        @console.update(content: params[:console])
+    
+        if @console.save
+          redirect "/consoles/#{@console.id}"
+        else
+          redirect "/tweets/#{@console.id}/edit"
+        end
+    end
 
 end
