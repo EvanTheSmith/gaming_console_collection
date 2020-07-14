@@ -16,17 +16,9 @@ class ConsolesController < ApplicationController
     end
 
     delete '/consoles/:id' do
-        if logged_in?
-            console = Console.find(params[:id])
-            if console.user == current_user
-              console.destroy
-              redirect "/users/#{current_user.slug}"
-            else
-              redirect "/consoles"
-            end
-        else
-            redirect "/login"
-        end
+        console = Console.find(params[:id])
+        console.destroy
+        redirect "/users/#{current_user.slug}"
     end
 
     get '/consoles/new' do
@@ -56,10 +48,10 @@ class ConsolesController < ApplicationController
     end
 
     patch '/consoles/:id' do
-        @console = Console.find(params[:id])
-        @console.update(params[:console])
+        console = Console.find(params[:id])
+        console.update(params[:console])
     
-        if @console.save
+        if console.save
           redirect "/consoles/#{@console.id}"
         else
           redirect "/tweets/#{@console.id}/edit"
