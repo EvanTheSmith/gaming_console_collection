@@ -55,7 +55,7 @@ class ConsolesController < ApplicationController
         end
     end
 
-    patch '/tweets/:id' do
+    patch '/consoles/:id' do
         @console = Console.find(params[:id])
         @console.update(content: params[:console])
     
