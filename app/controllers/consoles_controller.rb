@@ -57,7 +57,7 @@ class ConsolesController < ApplicationController
 
     patch '/consoles/:id' do
         @console = Console.find(params[:id])
-        @console.update(content: params[:console])
+        @console.update(params[:console])
     
         if @console.save
           redirect "/consoles/#{@console.id}"
