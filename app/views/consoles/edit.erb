@@ -1,5 +1,5 @@
 <form class="redleft" action="/consoles/<%= @console.id %>" method="post">
-<input id="hidden" type="hidden" name="_method" value="PATCH">
+<input id="hidden" type="hidden" name="_method" value="patch">
 
     <label for="name">Name: </label>
     <input type="text" name="console[name]" id="name" value="<%= @console.name %>"><br>
