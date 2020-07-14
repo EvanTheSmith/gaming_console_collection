@@ -5,13 +5,17 @@
 <tr><td>Owner: </td><td> <a href="/users/<%= @console.user.slug %>"><%= @console.user.user_name %></a> </td></tr>
 </table>
 
-<br />
-
 <% if current_user == @console.user %>
+<table><tr><td>
+
 <a href="/link">Edit Console</a>
- / 
+
+</td><td>
+
 <form method="post" action="/consoles/<%= @console.id %>">
 <input id="hidden" type="hidden" name="_method" value="DELETE">
 <input type="submit" value="Delete Console">
 </form>
+
+</td></tr></table>
 <% end %>
