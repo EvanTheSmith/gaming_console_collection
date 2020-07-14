@@ -8,19 +8,19 @@
 <% td_variable=1 %>
 <% @consoles.each do |console| %>
     <% if td_variable==1 %>
-    <tr><td>
+        <tr><td>
         <a href="/consoles/<%= console.id %>"><%= console.name %></a>
-    </td>
-    <% td_variable=2 %>
+        </td>
+        <% td_variable=2 %>
     <% else %>
-    <td>
+        <td>
         <a href="/consoles/<%= console.id %>"><%= console.name %></a>
-    </td></tr>
-    <% td_variable=1 %>
+        </td></tr>
+        <% td_variable=1 %>
     <% end %>
 <% end %>
 
-<% if !@consoles.last.id.even? %>
+<% if td_variable==2 %>
 </tr>
 <% end %>
 </table>
