@@ -8,5 +8,10 @@
 <br />
 
 <% if current_user == @console.user %>
-<a href="/link">Edit Console</a> / <a href="/link">Delete Console</a>
+<a href="/link">Edit Console</a>
+ / 
+<form method="post" action="/consoles/<%= @console.id %>">
+<input id="hidden" type="hidden" name="_method" value="DELETE">
+<input type="submit" value="Delete Console">
+</form>
 <% end %>
