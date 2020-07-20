@@ -14,7 +14,12 @@ class UsersController < ApplicationController
         session[:user_id] = user.id
         redirect "/"
       else
+        if usertest = User.all.find {|user| user.user_name.downcase == params[:user][:user_name].downcase} || User.all.find {|user| user.email.downcase == params[:user][:email].downcase}
+        @username = usertest.user_name
+        erb :"users/login"
+        else
         redirect "/signup"
+        end
       end
     end
 
@@ -27,7 +32,7 @@ class UsersController < ApplicationController
     end
 
     post "/login" do
-      user = User.find_by(user_name: params[:user_name])
+      user = User.find {|user| user.user_name.downcase == params[:user_name].downcase }
       if user && user.authenticate(params[:password])
         session[:user_id] = user.id
         redirect "/users/#{current_user.slug}"
