@@ -1,8 +1,8 @@
-<p>Here are all consoles on the site. Click on an individual console to view its details and owner.</p>
-
+<p>Here are all consoles on the site. Click on an individual console to view its details and owner.
 <% if logged_in? %>
-<p>Or <a href="/users/<%= current_user.slug %>">click here</a> to view just your personal collection. <br /> Consoles you own are highlighted in gold:</p>
+<br /> Consoles you own are highlighted in gold.
 <% end %>
+</p>
 
 <table class="redleft">
 <% td_variable=1 %>
@@ -26,7 +26,5 @@
 </table>
 
 <% if logged_in? %>
-<form method="get" action="/consoles/new">
-<input type="submit" value="Add Console">
-</form>
+<p><a href="/users/<%= current_user.slug %>">Click here</a> to view just your personal collection.</p>
 <% end %>

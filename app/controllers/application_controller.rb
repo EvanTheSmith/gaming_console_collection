@@ -1,7 +1,5 @@
 require './config/environment'
 
-binding.pry
-
 class ApplicationController < Sinatra::Base
 
   configure do
