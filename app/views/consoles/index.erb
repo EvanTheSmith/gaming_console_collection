@@ -9,12 +9,12 @@
 <% @consoles.each do |console| %>
     <% if td_variable==1 %>
         <tr><td>
-        <a href="/consoles/<%= console.id %>"><%= console.name %></a>
+        <a href="/consoles/<%= console.id %>" <% if console.user == current_user %> style="color:#F2BB2B"<% end %>><%= console.name %></a>
         </td>
         <% td_variable=2 %>
     <% else %>
         <td>
-        <a href="/consoles/<%= console.id %>"><%= console.name %></a>
+        <a href="/consoles/<%= console.id %>" <% if console.user == current_user %> style="color:#F2BB2B"<% end %>><%= console.name %></a>
         </td></tr>
         <% td_variable=1 %>
     <% end %>

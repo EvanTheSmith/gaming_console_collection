@@ -1,7 +1,7 @@
 class ConsolesController < ApplicationController
 
     get '/consoles' do
-        @consoles = Console.all
+        @consoles = Console.all.sort_by {|obj| obj.name}
         erb :"consoles/index"
     end
 

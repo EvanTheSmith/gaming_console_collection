@@ -16,7 +16,9 @@
 
     <table class="redleft">
 
-    <% @user.consoles.each do |console| %>
+    <% consoles = @user.consoles.sort_by {|obj| obj.name} %>
+
+    <% consoles.each do |console| %>
         <tr>
         <td><a href="/consoles/<%= console.id %>"><%= console.name %></a></td>
         </tr>
