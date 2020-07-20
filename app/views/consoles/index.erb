@@ -1,7 +1,7 @@
 <p>Here are all consoles on the site. Click on an individual console to view its details and owner.</p>
 
 <% if logged_in? %>
-<p>Or <a href="/users/<%= current_user.slug %>">click here</a> to view just your own personal collection</p>
+<p>Or <a href="/users/<%= current_user.slug %>">click here</a> to view just your personal collection. <br /> Consoles you own are highlighted in gold:</p>
 <% end %>
 
 <table class="redleft">
