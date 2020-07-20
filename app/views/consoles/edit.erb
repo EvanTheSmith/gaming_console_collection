@@ -10,7 +10,7 @@
     <label>Manufacturer: </label>
     <input type="radio" id="nintendo" name="console[manufacturer]" value="Nintendo" <%= 'checked' if @console.manufacturer == "Nintendo" %>>
     <label for="nintendo">Nintendo</label>
-    <input type="radio" id="sony" name="console[manufacturer]" value="Sony">
+    <input type="radio" id="sony" name="console[manufacturer]" value="Sony" <%= 'checked' if @console.manufacturer == "Sony" %>>
     <label for="sony">Sony</label>
     <input type="radio" id="microsoft" name="console[manufacturer]" value="Microsoft" <%= 'checked' if @console.manufacturer == "Microsoft" %>>
     <label for="microsoft">Microsoft</label>
