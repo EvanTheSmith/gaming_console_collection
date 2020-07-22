@@ -1,5 +1,6 @@
 ENV['SINATRA_ENV'] ||= "development"
 
+require 'sinatra/flash'
 require 'dotenv'
 Dotenv.load
 

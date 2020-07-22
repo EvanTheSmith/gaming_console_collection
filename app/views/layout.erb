@@ -5,6 +5,13 @@
   </head>
   
   <body>
+  <% flash.keys.each do |type| %>
+    <div data-alert class="flash <%= type %> alert-box radius">
+      <%= flash[type] %>
+      <a href="#" class="close">&times;</a>
+    </div>
+  <% end %>
+
    <div class="wrapper">
    <img src="/images/header_banner.png" class="img-responsive main-image">
    <table class="topbar">
@@ -17,13 +24,6 @@
    <% end %></td>
    </tr>
    </table>
-
-   <% flash.keys.each do |type| %>
-    <div data-alert class="flash <%= type %> alert-box radius">
-    <%= flash[type] %>
-    <a href="#" class="close">&times;</a>
-    </div>
-  <% end %>
    
    <%= yield %>
 
