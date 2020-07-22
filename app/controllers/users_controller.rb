@@ -35,7 +35,7 @@ class UsersController < ApplicationController
       user = User.find {|user| user.user_name.downcase == params[:user_name].downcase }
       if user && user.authenticate(params[:password])
         session[:user_id] = user.id
-        flash[:notice] = "Login successful!"
+        flash[:success] = "Login successful!"
         redirect "/users/#{current_user.slug}"
         else
         redirect "/login"
