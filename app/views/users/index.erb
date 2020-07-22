@@ -1,3 +1,9 @@
+<% if @users == [] %>
+
+<p>There are no registered users on the website.</p>
+
+<% else %>
+
 <p>Here are all users on the site. Click on an individual user to view their consoles.</p>
 
 <table class="redleft">
@@ -16,7 +22,9 @@
     <% end %>
 <% end %>
 
-<% if !@users.last.id.even? %>
+<% if @users && !@users.last.id.even? %>
 </tr>
 <% end %>
 </table>
+
+<% end %>
