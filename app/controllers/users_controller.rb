@@ -4,7 +4,7 @@ class UsersController < ApplicationController
         if !logged_in?
           erb :"users/signup"
         else
-          redirect "index"
+          redirect "/"
         end
     end
 
@@ -35,15 +35,17 @@ class UsersController < ApplicationController
       user = User.find {|user| user.user_name.downcase == params[:user_name].downcase }
       if user && user.authenticate(params[:password])
         session[:user_id] = user.id
-        flash[:success] = "Login successful!"
+        flash[:success] = "Login successful."
         redirect "/users/#{current_user.slug}"
         else
+        flash[:fail] = "Login failed! Please try again."
         redirect "/login"
       end
     end
 
     get "/logout" do
       session.clear
+      flash[:success] = "Logout successful."
       redirect "/"
     end
 
