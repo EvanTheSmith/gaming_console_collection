@@ -39,7 +39,7 @@ class UsersController < ApplicationController
       if user && user.authenticate(params[:password])
         session[:user_id] = user.id
         flash[:success] = "Login successful."
-        session[:login].clear
+        session[:login].clear if session[:login]
         redirect "/users/#{current_user.slug}"
         else
         flash[:fail] = "Login failed! Please try again."

@@ -15,15 +15,14 @@
   
    <img src="/images/header_banner.png" class="img-responsive main-image">
    <table class="topbar">
-   <tr>
-   <td><h2><a href="/">Home</a> // <a href="/users">Collectors</a> // <a href="/consoles">Game Consoles</a></h2></td>
+   <tr><td><h2><a href="/">Home</a> // <a href="/users">Collectors</a> // <a href="/consoles">Game Consoles</a></h2></td>
    <td><% if logged_in? %>
-   <h2><a href="/logout">Sign Out</a></h2>
+   <h2 style="text-align:center"><a href="/logout">Sign Out</a></h2>
    <% else %>
-   <h2><a href="/login">Sign In</a></h2>
-   <% end %></td>
-   </tr>
+   <h2 style="text-align:center"><a href="/login">Sign In</a></h2>
+   <% end %></td></tr>
    </table>
+   <hr />
    
    <%= yield %>
 

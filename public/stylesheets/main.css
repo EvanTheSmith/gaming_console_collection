@@ -64,6 +64,9 @@
     text-decoration: underline;
   }
 
+  hr {
+    margin-top: 0px;
+    border: 2px solid #ccc;
   }
 
   h1 {
@@ -75,10 +78,9 @@
 
   h2 {
     color: #ccc;
-    border-bottom: 2px solid #ccc;
+    /* border-bottom: 2px solid #ccc; */
     font-size: 24px;
     line-height: 36px;
-    margin-bottom: 16px;
     font-size: 18px;
     line-height: 24px;
   }
