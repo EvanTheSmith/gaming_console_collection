@@ -9,8 +9,10 @@ class ConsolesController < ApplicationController
         console = Console.new(params[:console])
         console.user = current_user
         if console.save
+            flash[:success] = "Successfully added #{console.name} to your collection."
             redirect "/consoles/#{console.id}"
         else
+            flash[:fail] = "Adding console failed! Please try again."
             redirect "/consoles/new"
         end
     end
@@ -18,6 +20,7 @@ class ConsolesController < ApplicationController
     delete '/consoles/:id' do
         console = Console.find(params[:id])
         console.destroy
+        flash[:success] = "Console deleted."
         redirect "/users/#{current_user.slug}"
     end
 
@@ -50,10 +53,11 @@ class ConsolesController < ApplicationController
     patch '/consoles/:id' do
         console = Console.find(params[:id])
         console.update(params[:console])
-    
         if console.save
+          flash[:success] = "Successfully edited #{console.name}."
           redirect "/consoles/#{console.id}"
         else
+          flash[:fail] = "Editing console failed! Please try again."
           redirect "/consoles/#{console.id}/edit"
         end
     end

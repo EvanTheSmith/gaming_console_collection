@@ -20,7 +20,7 @@ class ApplicationController < Sinatra::Base
 		end
 
     def current_user
-      !!session[:user_id] ? User.find(session[:user_id]) : nil
+      logged_in? ? User.find(session[:user_id]) : nil
 		end
   end
 

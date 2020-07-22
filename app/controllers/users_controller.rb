@@ -12,12 +12,15 @@ class UsersController < ApplicationController
       user = User.new(params[:user])
       if user.save
         session[:user_id] = user.id
+        flash[:success] = "Account successfully created: #{user.user_name}"
         redirect "/"
       else
         if usertest = User.all.find {|user| user.user_name.downcase == params[:user][:user_name].downcase} || User.all.find {|user| user.email.downcase == params[:user][:email].downcase}
-        @username = usertest.user_name
-        erb :"users/login"
+        session[:login] = usertest.user_name
+        flash[:fail] = "Your email or username is already in use. Did you mean to login?"
+        redirect "/login"
         else
+        flash[:fail] = "Sign up failed! Please try again."
         redirect "/signup"
         end
       end
@@ -36,6 +39,7 @@ class UsersController < ApplicationController
       if user && user.authenticate(params[:password])
         session[:user_id] = user.id
         flash[:success] = "Login successful."
+        session[:login].clear
         redirect "/users/#{current_user.slug}"
         else
         flash[:fail] = "Login failed! Please try again."
