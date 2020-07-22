@@ -1,14 +1,18 @@
 # Gaming Console Collection
 
-INFO ABOUT APP
+Welcome to the Gaming Console Collector.
+
+Using this app, users can store a catalog of game consoles they own in addition to viewing consoles owned by their friends.
+
+All stored data is public, available for viewing by guests and users alike.
 
 ## Installation
 
-HOW TO INSTALL APP
+Simply enter "bundle install" into your terminal to install all relevant gems.
 
 ## Usage
 
-HOW TO USE APP
+Enter "shotgun" into your terminal to launch the web app. Then use the toolbar and on screen instructions to setup an account, add consoles, and view other consoles on the website.
 
 ## Contributing
 
