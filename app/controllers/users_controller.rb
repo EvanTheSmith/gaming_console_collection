@@ -48,9 +48,14 @@ class UsersController < ApplicationController
     end
 
     get "/logout" do
-      session.clear
-      flash[:success] = "Logout successful."
-      redirect "/"
+      if logged_in?
+        session.clear
+        flash[:success] = "Logout successful."
+        redirect "/"
+      else
+        flash[:fail] = "You are not logged in."
+        redirect "/"
+      end
     end
 
     get "/users" do
