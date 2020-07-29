@@ -56,8 +56,8 @@ class ConsolesController < ApplicationController
 
     get '/consoles/:id/edit' do
         if logged_in?
-            console = Console.find(params[:id])
-            if current_user == console.user
+            @console = Console.find(params[:id])
+            if current_user == @console.user
                 erb :"consoles/edit"
             else
                 flash[:fail] = "You may not edit another user's consoles."
@@ -71,13 +71,24 @@ class ConsolesController < ApplicationController
 
     patch '/consoles/:id' do
         console = Console.find(params[:id])
-        console.update(params[:console])
-        if console.save
-          flash[:success] = "Successfully edited #{console.name}."
-          redirect "/consoles/#{console.id}"
+        if logged_in?
+          if console.user == current_user
+            console.update(params[:console])
+            if console.save
+              flash[:success] = "Successfully edited #{console.name}."
+              redirect "/consoles/#{console.id}"
+            else
+              flash[:fail] = "Editing console failed! Please try again."
+              redirect "/consoles/#{console.id}/edit"
+            end
+          else
+            flash[:fail] = "You may not edit another user's consoles."
+            redirect "/users/#{current_user.slug}"
+          end
         else
-          flash[:fail] = "Editing console failed! Please try again."
-          redirect "/consoles/#{console.id}/edit"
+          session[:login] = console.user.user_name
+          flash[:fail] = "Please login to continue."
+          redirect "/login"
         end
     end
 
