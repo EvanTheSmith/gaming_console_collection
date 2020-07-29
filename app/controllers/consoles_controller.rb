@@ -6,14 +6,19 @@ class ConsolesController < ApplicationController
     end
 
     post '/consoles' do
-        console = Console.new(params[:console])
-        console.user = current_user
-        if console.save
+        if logged_in?
+          console = Console.new(params[:console])
+          console.user = current_user
+          if console.save
             flash[:success] = "Successfully added #{console.name} to your collection."
             redirect "/consoles/#{console.id}"
-        else
+          else
             flash[:fail] = "Adding console failed! Please try again."
             redirect "/consoles/new"
+          end
+        else
+            flash[:fail] = "Please login to add a console."
+            redirect "/login"
         end
     end
 
