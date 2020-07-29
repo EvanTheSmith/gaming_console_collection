@@ -24,9 +24,14 @@ class ConsolesController < ApplicationController
 
     delete '/consoles/:id' do
         console = Console.find(params[:id])
-        console.destroy
-        flash[:success] = "Console deleted."
-        redirect "/users/#{current_user.slug}"
+        if logged_in? && console.user == current_user
+          console.destroy
+          flash[:success] = "Console deleted."
+          redirect "/users/#{current_user.slug}"
+        else
+          flash[:fail] = "You may not delete another user's consoles."
+          redirect "/users/#{current_user.slug}"
+        end
     end
 
     get '/consoles/new' do
