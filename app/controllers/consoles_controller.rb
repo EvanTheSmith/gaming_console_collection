@@ -44,6 +44,7 @@ class ConsolesController < ApplicationController
         if logged_in?
         erb :"consoles/new"
         else
+        flash[:fail] = "Please login to continue."
         redirect "/login"
         end
     end
@@ -55,13 +56,15 @@ class ConsolesController < ApplicationController
 
     get '/consoles/:id/edit' do
         if logged_in?
-            @console = Console.find(params[:id])
-            if current_user == @console.user
+            console = Console.find(params[:id])
+            if current_user == console.user
                 erb :"consoles/edit"
             else
-                redirect "/consoles"
+                flash[:fail] = "You may not edit another user's consoles."
+                redirect "/users/#{current_user.slug}"
             end
         else
+            flash[:fail] = "Please login to continue."
             redirect "/login"
         end
     end
